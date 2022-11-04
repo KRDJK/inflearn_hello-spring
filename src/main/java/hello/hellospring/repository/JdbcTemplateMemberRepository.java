@@ -33,7 +33,9 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("name", member.getName());
 
-        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters)); 
+            // pk가 어떻게 생성되어있는지를 반환하는듯
+        
         member.setId(key.longValue());
         return member;
     }
